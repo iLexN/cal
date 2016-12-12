@@ -1,0 +1,22 @@
+{
+  "name": "Cal",
+  "homepage": "https://github.com/iLexN/cal",
+  "authors": [
+    "iLexN <ilex.job@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "sw-toolbox": "^3.4.0",
+    "vue": "^2.1.4"
+  }
+}
