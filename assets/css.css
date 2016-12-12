@@ -54,17 +54,20 @@
     text-align: center;
 }
 
-.col3>div{
+.col3>button{
     border : 1px solid goldenrod;
+    padding:0.25rem;
+    width: 100%;
+}
+.col2>div,.col2>button{
+    border : 1px solid goldenrod;
+    width: 100%;
     padding:0.25rem;
 }
-.col2>div{
+.col1>button{
     border : 1px solid goldenrod;
     padding:0.25rem;
-}
-.col1>div{
-    border : 1px solid goldenrod;
-    padding:0.25rem;
+    width: 100%;
 }
 
 .bg{
