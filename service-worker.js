@@ -8,13 +8,13 @@
     global.toolbox.options.debug = true;
 
     // The route for the images
-    global.toolbox.router.get('/assets/(.*)', global.toolbox.cacheFirst, {
+    global.toolbox.router.get('/cal/assets/(.*)', global.toolbox.cacheFirst, {
         cache: {
             name: 'assets-1',
             maxAgeSeconds: 60 * 60 * 24 * 31 // cache for a week
         }
     });
-    global.toolbox.router.get('/bower_components/(.*)', global.toolbox.cacheFirst, {
+    global.toolbox.router.get('/cal/bower_components/(.*)', global.toolbox.cacheFirst, {
         cache: {
             name: 'components-v0.1',
             maxAgeSeconds: 60 * 60 * 24 * 31 // cache for a month
