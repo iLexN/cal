@@ -41,6 +41,12 @@
     padding:0.2rem;
     text-align: center;
 }
+.col32 {
+    width:66.66%;
+    float : left;
+    padding:0.2rem;
+    text-align: center;
+}
 .col2 {
     width:50%;
     float : left;
@@ -54,7 +60,7 @@
     text-align: center;
 }
 
-.col3>button{
+.col3>button,.col32>button{
     border : 1px solid goldenrod;
     padding:0.25rem;
     width: 100%;
