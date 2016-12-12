@@ -38,33 +38,33 @@
 .col3 {
     width:33.33%;
     float : left;
-    padding:0.25rem;
+    padding:0.2rem;
     text-align: center;
 }
 .col2 {
     width:50%;
     float : left;
-    padding:0.25rem;
+    padding:0.2rem;
     text-align: center;
 }
 .col1 {
     width:100%;
     float : left;
-    padding:0.25rem;
+    padding:0.2rem;
     text-align: center;
 }
 
 .col3>div{
     border : 1px solid red;
-    padding:0.5rem;
+    padding:0.25rem;
 }
 .col2>div{
     border : 1px solid red;
-    padding:0.5rem;
+    padding:0.25rem;
 }
 .col1>div{
     border : 1px solid red;
-    padding:0.5rem;
+    padding:0.25rem;
 }
 
 .cf{
