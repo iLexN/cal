@@ -38,7 +38,8 @@
             <!--<div class="cf"></div>-->
 
             <div>
-                <div class="col1"><button v-on:click='set0'>Clear</button></div>
+                <div class="col2"><button v-on:click='set0'>Clear</button></div>
+                <div class="col2"><button v-on:click='dLast1'>Del</button></div>
             </div>
 
             <div>
@@ -49,7 +50,7 @@
 
         </div>
 
-        <script src="bower_components/sw-toolbox/companion.js" type="text/javascript" data-service-worker="service-worker.js?v1.6"></script>
+        <script src="bower_components/sw-toolbox/companion.js" type="text/javascript" data-service-worker="service-worker.js?v1.7"></script>
         <script src="bower_components/vue/dist/vue.js" type="text/javascript"></script>
         <script>
         Vue.filter('doSign', function (value) {
@@ -81,6 +82,9 @@
                 set0: function () {
                     this.result = 0;
                     this.sign = 'Y'
+                },
+                dLast1: function(){
+                    this.result = this.result.substr(0,this.result.length - 1);
                 },
                 toJPY: function () {
                     if (this.sign === 'Y') {
