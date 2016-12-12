@@ -42,6 +42,7 @@
 	"start_url": "https:\/\/portal.pacificprime.com",
 	"display": "standalone",
         "background_color": "#fff",
+        "theme_color": "#512DA8", 
         "description": "A simply JPY <=> HKD",
         "orientation" : "landscape"
 }
