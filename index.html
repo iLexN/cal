@@ -50,77 +50,75 @@
         </div>
 
         <script src="bower_components/sw-toolbox/companion.js" type="text/javascript" data-service-worker="service-worker.js?v1.6"></script>
-
         <script src="bower_components/vue/dist/vue.js" type="text/javascript"></script>
         <script>
-Vue.filter('doSign', function (value) {
-    if (value === 'Y') {
-        return '¥';
-    } else {
-        return '$';
-    }
-});
-Vue.filter('formatNum', function (value) {
-    return decimalAdjust('floor', value, -4);
-});
-var app = new Vue({
-    el: '#app',
-    data: {
-        result: 0,
-        sign: 'Y',
-        rate: 0.0672129367,
-        clear : false
-    },
-    methods: {
-        numClick: function (num) {
-            if (this.result === 0 || this.clear === true) {
-                this.result = '';
-                this.clear = false;
+        Vue.filter('doSign', function (value) {
+            if (value === 'Y') {
+                return '¥';
+            } else {
+                return '$';
             }
-            this.result = this.result + num.toString();
-        },
-        set0: function () {
-            this.result = 0;
-            this.sign = 'Y'
-        },
-        toJPY: function () {
-            if (this.sign === 'Y') {
-                return;
+        });
+        Vue.filter('formatNum', function (value) {
+            return decimalAdjust('floor', value, -4);
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                result: 0,
+                sign: 'Y',
+                rate: 0.0672129367,
+                clear: false
+            },
+            methods: {
+                numClick: function (num) {
+                    if (this.result === 0 || this.clear === true) {
+                        this.result = '';
+                        this.clear = false;
+                    }
+                    this.result = this.result + num.toString();
+                },
+                set0: function () {
+                    this.result = 0;
+                    this.sign = 'Y'
+                },
+                toJPY: function () {
+                    if (this.sign === 'Y') {
+                        return;
+                    }
+                    this.sign = 'Y';
+                    this.result = this.result / this.rate;
+                    this.clear = true;
+                },
+                toHKD: function () {
+                    if (this.sign === 'H') {
+                        return;
+                    }
+                    this.sign = 'H';
+                    this.result = this.result * this.rate;
+                    this.clear = true;
+                }
             }
-            this.sign = 'Y';
-            this.result = this.result / this.rate;
-            this.clear = true;
-        },
-        toHKD: function () {
-            if (this.sign === 'H') {
-                return;
+        });
+
+        function decimalAdjust(type, value, exp) {
+            // If the exp is undefined or zero...
+            if (typeof exp === 'undefined' || +exp === 0) {
+                return Math[type](value);
             }
-            this.sign = 'H';
-            this.result = this.result * this.rate;
-            this.clear = true;
+            value = +value;
+            exp = +exp;
+            // If the value is not a number or the exp is not an integer...
+            if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+                return NaN;
+            }
+            // Shift
+            value = value.toString().split('e');
+            value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+            // Shift back
+            value = value.toString().split('e');
+            return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
         }
-    }
-});
-
-function decimalAdjust(type, value, exp) {
-    // If the exp is undefined or zero...
-    if (typeof exp === 'undefined' || +exp === 0) {
-        return Math[type](value);
-    }
-    value = +value;
-    exp = +exp;
-    // If the value is not a number or the exp is not an integer...
-    if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
-        return NaN;
-    }
-    // Shift
-    value = value.toString().split('e');
-    value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
-    // Shift back
-    value = value.toString().split('e');
-    return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
-}
-
         </script>
     </body>
 </html>
