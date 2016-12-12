@@ -11,7 +11,7 @@
     global.toolbox.router.get('/cal/assets/(.*)', global.toolbox.cacheFirst, {
         cache: {
             name: 'assets-0.4',
-            maxAgeSeconds: 60 * 60 * 24 * 31 // cache for a week
+            maxAgeSeconds: 60 * 60 * 24 * 31 // cache for a month
         }
     });
     global.toolbox.router.get('/cal/bower_components/(.*)', global.toolbox.cacheFirst, {
