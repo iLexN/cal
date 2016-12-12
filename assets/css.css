@@ -55,16 +55,20 @@
 }
 
 .col3>div{
-    border : 1px solid red;
+    border : 1px solid goldenrod;
     padding:0.25rem;
 }
 .col2>div{
-    border : 1px solid red;
+    border : 1px solid goldenrod;
     padding:0.25rem;
 }
 .col1>div{
-    border : 1px solid red;
+    border : 1px solid goldenrod;
     padding:0.25rem;
+}
+
+.bg{
+    background-color: gold;
 }
 
 .cf{
